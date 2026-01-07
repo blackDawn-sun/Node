@@ -11,6 +11,7 @@
 
 
 ![500](assets/obsidian%20安装教程/file-20260107172529675.png)
+![](assets/obsidian%20安装教程/file-20260107175227109.png)
 ## Custom Attachment Location
 > 调整图片位置并改 图片格式为标准md文档格式
 
