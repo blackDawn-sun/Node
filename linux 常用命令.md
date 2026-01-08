@@ -83,8 +83,12 @@ ONBOOT="yes"：表示在系统启动时自动激活该网络接口
 ```
 3. 修改ip,子网掩码之类
 4. 重启
+# 用户加用户组
 
-
+```sh
+sudo groupadd docker # 新增用户组
+sudo usermod -aG docker {$USER}  # 
+```
 
 # 结尾
 

@@ -69,4 +69,10 @@ vim /etc/docker/daemon.json
   ]
 }
 ```
+7. 重启docker服务
+```sh
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+```
 
