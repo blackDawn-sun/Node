@@ -65,7 +65,10 @@ vim /etc/docker/daemon.json
   "registry-mirrors": [
     "https://docker.1ms.run",
     "https://docker.m.daocloud.io",
-    "https://docker.xuanyuan.me"
+    "https://docker.xuanyuan.me",
+    "https://docker.anyhub.us.kg",
+    "https://dockerhub.jobcher.com",
+    "https://dockerhub.icu"
   ]
 }
 ```
