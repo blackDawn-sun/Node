@@ -1,10 +1,10 @@
-docker 安装 命令
+## docker 安装 命令
 ```sh
 docker pull library/mysql:5.7.44
 ```
 
 
-docker run
+## docker run
 
 ```sh
 docker run --name mysql5.7 \
@@ -22,4 +22,7 @@ docker run --name mysql57 \  容器名
            -d mysql:5.7
 ```
 
+容器查看
 
+
+主从复制
