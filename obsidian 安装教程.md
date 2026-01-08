@@ -7,6 +7,7 @@
 先关闭安全模式
 ![](assets/obsidian%20安装教程/file-20260107172230768.png)
 ## git
+安装前提[git 同步远程 github教程](git%20同步远程%20github教程.md)
 ![500](assets/obsidian%20安装教程/file-20260107172400546.png)
 
 
