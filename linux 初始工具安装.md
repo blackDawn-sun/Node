@@ -38,5 +38,20 @@ sudo sed -i 's/download.docker.com/mirrors.huaweicloud.com\/docker-ce/g' /etc/yu
 4. 更新索引文件并安装
 ```shell
 sudo yum makecache fast  
-sudo yum install docker-ce
+sudo yum install docker-ce //安装docker
+```
+补充命令:
+```shell
+yum list docker-ce.x86_64 --showduplicates | sort -r //从高到低列出Docker-ce的版本
+yum install docker-ce-<VERSION_STRING> docker-ce-cli-<VERSION_STRING> containerd.io //指定版本（docker-ce-18.09.9）进行安装
+yum install docker-ce-18.09.9 docker-ce-cli-18.09.9 containerd.io
+```
+5. 启动docker
+
+```sh
+systemctl start docker
+
+systemctl enable docker   //开机自启
+
+docker run hello-world    //Helloword 测试安装成功
 ```
