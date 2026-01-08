@@ -2,19 +2,19 @@
 > [!NOTE] 适用系统
 > (centos/rehul)
 
-# ipconfig
+##  ipconfig
 ```shell
 yum -y install net-tools.x86_64
 ```
-# vim
+##  vim
 ```shell
 yum -y install vim
 ```
-# weget
+##  weget
 ```shell
 yum -y install wget
 ```
-# git
+##  git
 ```shell
 yum -y install git
 git config --global credential.helper store //全局保存用户凭据

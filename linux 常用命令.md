@@ -1,10 +1,10 @@
-# yum
+## 1.yum
 ```shell
 yum repolist //查所有yum源地址
 yum repolist --verbose | grep <repository-id> //查yum仓库id具体的信息,url地址
 ls /etc/yum.repos.d/ //列出所有yum源
 ```
-# 查版本号
+## 2.查版本号
 ```shell
 cat /etc/os-release 
 uname -a
@@ -21,7 +21,7 @@ PRETTY_NAME="Anolis OS 8.10"
 ANSI_COLOR="0;31"
 HOME_URL="https://openanolis.cn/"
 ```
-# 修改主机名
+## 3.修改主机名
 ```
 # 查看当前主机名
 hostnamectl
@@ -35,7 +35,7 @@ sudo systemctl restart systemd-hostnamed //手动生效(无需重启,但要刷�
 cat /etc/hostname
 cat /etc/hosts
 ```
-# 修改主机ip
+##  4.修改主机ip
 1. 进入文件夹/etc/sysconfig/network-scripts
 ```sh
 cd /etc/sysconfig/network-scripts
@@ -83,7 +83,7 @@ ONBOOT="yes"：表示在系统启动时自动激活该网络接口
 ```
 3. 修改ip,子网掩码之类
 4. 重启
-# 用户加用户组
+##  5.用户加用户组
 
 ```sh
 sudo groupadd {用户组} # 新增用户组
@@ -91,7 +91,7 @@ sudo usermod -aG docker {$USER}  # `usermod -aG`：`-a` 表示追加，`-G` �
 newgrp {用户组} # 切换用户组,重开shell窗口
 ```
 
-# 结尾
+## 结尾
 
 
 
