@@ -1,4 +1,4 @@
-
+#linux
 > [!NOTE] 适用系统
 > (centos/rehul)
 
@@ -22,4 +22,4 @@ git config --global user.name bg
 git config --global user.email bzqwangyi2017@163.com
 ```
 ## docker
-[docker安装](docker/docker安装.md)
+[docker安装](../docker/docker安装.md)

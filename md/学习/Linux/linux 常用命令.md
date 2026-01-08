@@ -1,3 +1,4 @@
+#linux
 ## 1.yum
 ```shell
 yum repolist //查所有yum源地址
