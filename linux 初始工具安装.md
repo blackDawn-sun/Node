@@ -53,5 +53,5 @@ systemctl start docker
 
 systemctl enable docker   //开机自启
 
-docker run hello-world    //Helloword 测试安装成功
+docker run hello-world    /Helloword 测试安装成功
 ```
