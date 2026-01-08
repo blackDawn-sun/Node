@@ -55,3 +55,23 @@ systemctl enable docker   //开机自启
 
 docker run hello-world    /Helloword 测试安装成功
 ```
+6. 配置docker国内镜像源
+```
+cd /etc/docker/
+vim /etc/docker/daemon.json
+```
+```json
+{
+  "registry-mirrors": [
+    "https://docker.1ms.run",
+    "https://docker.m.daocloud.io",
+    "https://docker.xuanyuan.me",
+    "https://7bezldxe.mirror.aliyuncs.com/",
+    "https://docker.mirrors.ustc.edu.cn/",
+    "https://hub-mirror.c.163.com",
+    "https://registry.docker-cn.com",
+"https://docker.mirrors.ustc.edu.cn"
+  ]
+}
+```
+
