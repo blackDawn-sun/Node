@@ -66,7 +66,7 @@ vim /etc/docker/daemon.json
 ```json
 {
   "registry-mirrors": [
-    "tbtnsge26dvc5a.xuanyuan.run",
+    "https://tbtnsge26dvc5a.xuanyuan.run",
     "https://docker.1ms.run",
     "https://hub.rat.dev",
     "https://docker-0.unsee.tech"
