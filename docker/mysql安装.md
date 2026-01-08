@@ -9,9 +9,9 @@ docker run
 ```sh
 docker run --name mysql5.7 \
            -e MYSQL_ROOT_PASSWORD=root \
-           -v /path/on/host/mysql/data:/var/lib/mysql \
+           -v /docker/volume/mysql5.7:/var/lib/mysql \
            -p 3306:3306 \
-           -d mysql:5.7
+           -d mysql:5.7.44
 ```
 
 ```sh
@@ -21,3 +21,5 @@ docker run --name mysql57 \  容器名
            -p 3306:3306 \ 端口映射
            -d mysql:5.7
 ```
+
+
