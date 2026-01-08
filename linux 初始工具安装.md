@@ -76,3 +76,9 @@ sudo systemctl restart docker
 
 ```
 
+8. 给用户增加docker用户组
+```sh
+sudo groupadd docker
+sudo usermod -aG docker bg // bg是当前用户
+newgrp docker //切换用户组, 重启shell
+```

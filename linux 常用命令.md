@@ -86,8 +86,9 @@ ONBOOT="yes"：表示在系统启动时自动激活该网络接口
 # 用户加用户组
 
 ```sh
-sudo groupadd docker # 新增用户组
-sudo usermod -aG docker {$USER}  # 
+sudo groupadd {用户组} # 新增用户组
+sudo usermod -aG docker {$USER}  # `usermod -aG`：`-a` 表示追加，`-G` 指定组，千万不要漏了 `-a`，否则会把用户从其他组移除
+newgrp {用户组} # 切换用户组,重开shell窗口
 ```
 
 # 结尾
