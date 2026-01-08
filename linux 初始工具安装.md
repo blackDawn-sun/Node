@@ -56,6 +56,9 @@ systemctl enable docker   //开机自启
 docker run hello-world    /Helloword 测试安装成功
 ```
 6. 配置docker国内镜像源
+
+> tbtnsge26dvc5a.xuanyuan.run  轩辕专属域名
+
 ```
 cd /etc/docker/
 vim /etc/docker/daemon.json
@@ -63,6 +66,7 @@ vim /etc/docker/daemon.json
 ```json
 {
   "registry-mirrors": [
+    "tbtnsge26dvc5a.xuanyuan.run",
     "https://docker.1ms.run",
     "https://hub.rat.dev",
     "https://docker-0.unsee.tech"
