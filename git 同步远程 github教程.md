@@ -340,3 +340,8 @@ git init //把这个目录变成Git可以管理的仓库
 到此，本地代码已经推送到github仓库了，我们现在去githubt仓库看看。  
 
 ![](https://pic2.zhimg.com/v2-e13a771981e837d03b9dbbef283aa0cb_1440w.jpg)
+
+**补充问题:** 
+**git报错 :** 
+fatal: Could not read from remote repository.
+关闭代理
