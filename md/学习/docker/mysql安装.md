@@ -1,4 +1,8 @@
 #docker #mysql #mysql5
+
+## 管理工具
+[SQLynx 数据库管理工具](../../软件/SQLynx%20数据库管理工具.md)(免费)
+sqlyog(免费)
 ## docker 安装 命令
 ```sh
 docker pull library/mysql:5.7.44
