@@ -1,5 +1,8 @@
 #linux
 ## 1.yum
+
+^e52f2b
+
 ```shell
 yum repolist //查所有yum源地址
 yum repolist --verbose | grep <repository-id> //查yum仓库id具体的信息,url地址
