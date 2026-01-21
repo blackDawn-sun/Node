@@ -8,6 +8,13 @@
 官网下载 [JetBrains: 软件开发者和团队的必备工具](https://www.jetbrains.com.cn/)
 # JetBrains破解补丁
 ![](assets/JetBrains%20全家桶激活破解(2025.X)/file-20260121111231992.zip)
+
+执行下面
+
+![](assets/JetBrains%20全家桶激活破解(2025.X)/file-20260121114633254.png)
+如下图，出现done 表示完成
+![](assets/JetBrains%20全家桶激活破解(2025.X)/file-20260121114733047.png)
+
 # 激活码：
 ## idea
 ```
