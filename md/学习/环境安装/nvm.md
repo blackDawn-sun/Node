@@ -17,5 +17,19 @@ nvm use 12.16.3
 node -v
 ```
 
+## 设置npm镜像源
+```sh
+npm config set registry https://registry.npm.taobao.org/
+npm config get registry
+
+#回退默认值：
+npm config set registry https://registry.npmjs.org/
+
+#其他镜像源
+#华为
+npm config set registry https://mirrors.huaweicloud.com/repository/npm/ 
+npm cache clean -f
+```
+
 
 
