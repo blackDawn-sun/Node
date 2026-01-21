@@ -28,3 +28,23 @@ conf/settings.xml:
 </mirrors>
 ```
 ## 配置环境变量
+打开高级系统设置
+![](assets/maven/file-20260121133602017.png)
+打开环境变量
+![](assets/jdk/file-20260121133715336.png)
+编辑系统变量，目标path
+
+增加系统变量
+```
+MAVEN_HOME
+```
+![](assets/maven/file-20260121134221135.png)path 增加 并上移到最前面
+```
+%MAVEN_HOME%\bin
+```
+![](assets/maven/file-20260121134348715.png)
+验证：
+执行命令
+```sh
+mvn -v
+```
