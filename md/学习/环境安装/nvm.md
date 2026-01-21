@@ -31,5 +31,11 @@ npm config set registry https://mirrors.huaweicloud.com/repository/npm/
 npm cache clean -f
 ```
 
+## 设置nodejs源地址
+```sh
+#华为源
+npm config set disturl https://mirrors.huaweicloud.com/nodejs
+#阿里源
 
+```
 
