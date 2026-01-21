@@ -19,12 +19,18 @@ conf/settings.xml: (地址自定义，文中以D:\myspace\KF\KF-Environment\mave
 conf/settings.xml:
 ```xml
 <mirrors>
-    <mirror>
+	<mirror>
         <id>aliyunmaven</id>
         <name>阿里云公共仓库</name>
         <url>https://maven.aliyun.com/repository/public</url>
         <mirrorOf>central</mirrorOf>
     </mirror>
+	<!-- 华为公共仓库 -->
+	<mirror>
+		<id>huaweicloud</id>
+		<url>https://mirrors.huaweicloud.com/repository/maven/</url>
+		<mirrorOf>*</mirrorOf>
+	</mirror>
 </mirrors>
 ```
 ## 配置环境变量
