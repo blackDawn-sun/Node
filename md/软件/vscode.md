@@ -9,3 +9,5 @@
 ### Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code
 中文语言包
 ![](assets/vscode/file-20260127133924923.png)
+
+
