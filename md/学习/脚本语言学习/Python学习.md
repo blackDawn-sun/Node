@@ -70,6 +70,14 @@ not 返回一定是布尔值
 ## 常用函数
 ### input()
 ![](assets/Python学习/file-20260128120131083.png)
+### 字符串函数
+string.split(string) 分割返回为列表
+string.strip(string) 去除首尾包含的字符字符
+len(string) 长度
+max(string) 返回unicode编码最大的字符
+min(string) 返回unicode编码最小的字符
+sort(string) unicode编码排序后返回
+
 
 ## 流程判断
 ### 判断
@@ -146,8 +154,9 @@ print(s)
 ![](assets/Python学习/file-20260128132521222.png)
 ![](assets/Python学习/file-20260128133345973.png)
 #### sum()
-
-
+in
+not in 
+count(item) 计数
 ### 列表（list）
 类似 list集合 和数组
 格式： [a,b,c,[aa,bb,cc],d] 
@@ -167,7 +176,79 @@ a[0] = 1
 a[0]
 #### 常用方法
 ![](assets/Python学习/file-20260128132350847.png)
+#### 转换
+![](assets/Python学习/file-20260128143234664.png)
 ### 元祖
-> 元祖数据不可修改
+> 元祖数据不可修改 
+> 格式 （a,b,c）
 
 ![](assets/Python学习/file-20260128133117753.png)
+#### 转换
+![](assets/Python学习/file-20260128143316314.png)
+### string
+#### 转换
+![](assets/Python学习/file-20260128143459676.png)
+
+### 序列
+列表，元祖，string 都是序列
+切片 就是取序列里的一部分元素
+```python
+# [起始元素，结束元素，步长] 左闭右开 可省略写 如list[:99:] list[1::] list[::1]
+list = [1,2,3,4,5,6,7,8,9]  
+print(list[2:8:2])
+#返回 [3, 5, 7]
+```
+相加
+```python 
+list = [1,2,3]  
+list2 = [4,5,6,7,8,9]
+list3 = list + list2
+#返回 [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+相乘（重复添加）
+```python
+list = [1,2,3]    
+list3 = list * 2  
+print(list3)
+#返回 [1, 2, 3, 1, 2, 3]
+```
+
+### 集合
+无序，去重
+格式： {}
+frozenset 是不可变的
+```python
+set = frozenset("strings")  
+print(set)
+```
+空集合
+```python
+a = set()
+```
+![](assets/Python学习/file-20260128141031173.png)
+#### 操作方法
+![](assets/Python学习/file-20260128141151718.png)
+![](assets/Python学习/file-20260128141259237.png)
+#### 常用方法
+![](assets/Python学习/file-20260128141435934.png)
+![](assets/Python学习/file-20260128141451245.png)
+![](assets/Python学习/file-20260128141515892.png)
+![](assets/Python学习/file-20260128141532030.png)
+![](assets/Python学习/file-20260128141550761.png)
+![](assets/Python学习/file-20260128141718167.png)
+#### 转换
+![](assets/Python学习/file-20260128143401089.png)
+#### 简写
+![](assets/Python学习/file-20260128144108483.png)
+### 字典
+类似map ,key有去重能力
+key 不可变类型，可以是序列和集合 ,value 任意类型
+格式：{key:value,key,value}
+#### 操作方法
+![](assets/Python学习/file-20260128142551691.png)
+#### 常用方法
+![](assets/Python学习/file-20260128142834611.png)
+#### 字典遍历
+![](assets/Python学习/file-20260128142934166.png)
+#### 转换
+![](assets/Python学习/file-20260128143647640.png)
