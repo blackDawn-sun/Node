@@ -70,3 +70,39 @@ not 返回一定是布尔值
 ## 常用函数
 ### input()
 ![](assets/Python学习/file-20260128120131083.png)
+
+## 流程判断
+### 判断
+if-elif-else
+```python
+num = int(input("班上有多少人: "))  
+if if 0 < num < 10::  # 相当 num>0 and num<10 简写
+    print("小班")  #4个空格的缩进
+elif 20 > num > 10:  # 相当 num<20 and num >10 简写
+    print("中班")  #4个空格的缩进
+else:  
+    print(f"既不是小班也不是中班，班级人数去掉老师是{num-1}人,你自己看吧")
+```
+### 循环
+while
+```python
+n = 1  
+while n<10:  
+    n+=1  
+    print(f"n= {n}")  
+print(f"end while , n= {n}")
+```
+for
+> 可以使用 continue  , break
+
+```python
+#使用range
+for n in range(1,5): #range 左闭右开[1,5) 相当于[1,2,3,4]  
+    print(f"n = {n}")  
+print("end for ")
+
+#字符串也可用for
+for n in "abcdee": #相当于[a,b,c,d,e,e]  
+    print(f"n = {n}")  
+print("end for ")
+```
