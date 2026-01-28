@@ -106,3 +106,8 @@ for n in "abcdee": #相当于[a,b,c,d,e,e]
     print(f"n = {n}")  
 print("end for ")
 ```
+## 函数
+
+```python
+
+```
