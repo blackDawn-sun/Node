@@ -95,6 +95,8 @@ elif 20 > num > 10:  # 相当 num<20 and num >10 简写
 else:  
     print(f"既不是小班也不是中班，班级人数去掉老师是{num-1}人,你自己看吧")
 ```
+条件表达式
+![](assets/Python学习/file-20260128164730801.png)
 ### 循环
 while
 ```python
@@ -271,6 +273,10 @@ class Person:
 ![](assets/Python学习/file-20260128160239337.png)
 #### 实例化对象
 ![](assets/Python学习/file-20260128144926680.png)
+> 对象可以动态添加属性
+```python
+p1.xxx = "新增的属性xxx"
+```
 #### 获取和修改对象
 ![](assets/Python学习/file-20260128145042660.png)
 #### 创建方法
@@ -292,6 +298,38 @@ cls 可以使用类属性
 ![](assets/Python学习/file-20260128160646000.png)
 ##### 带下划线的方法
 ![](assets/Python学习/file-20260128161144159.png)
+##### 方法可以动态添加属性
+![](assets/Python学习/file-20260128163042673.png)
+##### 方法可以赋值给变量
+![](assets/Python学习/file-20260128163203940.png)
+##### 方法可以作为参数
+![](assets/Python学习/file-20260128163608133.png)
+##### 方法可以作为返回值
+![](assets/Python学习/file-20260128163702194.png)
+##### 方法有多个返回值，默认返回元组
+如返回的是（res1,res2）
+![](assets/Python学习/file-20260128163949535.png)
+##### 参数打包和解包
+打包
+![](assets/Python学习/file-20260128164150828.png)
+解包
+![](assets/Python学习/file-20260128164337750.png)
+同时使用
+![](assets/Python学习/file-20260128164439975.png)
+##### 匿名函数
+![](assets/Python学习/file-20260128165003392.png)
+##### map函数
+![](assets/Python学习/file-20260128165321369.png)
+##### Fliter函数
+![](assets/Python学习/file-20260128165530528.png)
+##### sorted函数
+![](assets/Python学习/file-20260128165810178.png)
+![](assets/Python学习/file-20260128170000425.png)
+##### min,max函数
+![](assets/Python学习/file-20260128170202113.png)
+##### 推导式（列表，字典，集合）
+![](assets/Python学习/file-20260128170703193.png)
+
 ### 继承
 ##### 格式
 无自己的东西
@@ -310,3 +348,4 @@ cls 可以使用类属性
 标准多态基础上，无继承，不需要类型限制，只要同一个方法就可以如speak
 ### 抽象类
 ![](assets/Python学习/file-20260128162217498.png)
+
