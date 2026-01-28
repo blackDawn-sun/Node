@@ -47,15 +47,26 @@ print(xx)
 ![](assets/Python学习/file-20260128111721601.png)
 - 数据类型转换
 ```python
-print(str(1_000))  
+print(type(str(1_000)))  
 print(int(56.123))  
-print(float(120))
+print(float(120))  
+print(bool(0)) #布尔类型
 #返回
-1000
+<class 'str'>
 56
 120.0
+False
 ```
 ## 运算符
-![](assets/Python学习/file-20260128112401003.png)
+![500](assets/Python学习/file-20260128112401003.png)
 
-![](assets/Python学习/file-20260128112522600.png)
+![500](assets/Python学习/file-20260128112522600.png)
+![500](assets/Python学习/file-20260128114847745.png)
+![500](assets/Python学习/file-20260128115214373.png)
+![](assets/Python学习/file-20260128115456151.png)
+or同理
+not 返回一定是布尔值
+
+## 常用函数
+### input()
+![](assets/Python学习/file-20260128120131083.png)
