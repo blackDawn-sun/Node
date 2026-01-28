@@ -71,7 +71,11 @@ not 返回一定是布尔值
 ### input()
 ![](assets/Python学习/file-20260128120131083.png)
 ### 字符串函数
+
+^ef1117
+
 string.split(string) 分割返回为列表
+![](assets/Python学习/file-20260128154214367.png)
 string.strip(string) 去除首尾包含的字符字符
 len(string) 长度
 max(string) 返回unicode编码最大的字符
@@ -186,6 +190,7 @@ a[0]
 #### 转换
 ![](assets/Python学习/file-20260128143316314.png)
 ### string
+[字符串函数](Python学习.md#^ef1117)
 #### 转换
 ![](assets/Python学习/file-20260128143459676.png)
 
@@ -254,10 +259,47 @@ key 不可变类型，可以是序列和集合 ,value 任意类型
 ![](assets/Python学习/file-20260128143647640.png)
 ### 面向对象
 #### 创建对象
+##### 实例对象
 ![](assets/Python学习/file-20260128144655953.png)
+##### 类属性
+```python
+class Person:
+	age = 10 #类属性
+	sex = '男' #类属性
+```
+##### 访问权限
+![](assets/Python学习/file-20260128160239337.png)
 #### 实例化对象
 ![](assets/Python学习/file-20260128144926680.png)
 #### 获取和修改对象
 ![](assets/Python学习/file-20260128145042660.png)
 #### 创建方法
+##### 实例方法
 ![](assets/Python学习/file-20260128145354981.png)
+调用
+```python
+p1 = Persion("张三",15,'男')
+p1.speak("hello")
+Persion.speak(p1,"hello")
+```
+##### 类方法
+![](assets/Python学习/file-20260128153522511.png)
+![500](assets/Python学习/file-20260128154450286.png)
+cls 可以使用类属性
+##### 静态方法
+![](assets/Python学习/file-20260128154710737.png)
+##### getter 和 setter
+![](assets/Python学习/file-20260128160646000.png)
+##### 带下划线的方法
+![](assets/Python学习/file-20260128161144159.png)
+### 继承
+##### 格式
+无自己的东西
+![](assets/Python学习/file-20260128155022863.png)
+有自己的东西
+![](assets/Python学习/file-20260128155351226.png)
+##### 子父类判断
+![](assets/Python学习/file-20260128155614042.png)
+##### 多继承
+![](assets/Python学习/file-20260128155911014.png)
+![](assets/Python学习/file-20260128160046868.png)
