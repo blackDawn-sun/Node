@@ -252,3 +252,10 @@ key 不可变类型，可以是序列和集合 ,value 任意类型
 ![](assets/Python学习/file-20260128142934166.png)
 #### 转换
 ![](assets/Python学习/file-20260128143647640.png)
+### 面向对象
+#### 创建对象
+![](assets/Python学习/file-20260128144655953.png)
+#### 实例化对象
+![](assets/Python学习/file-20260128144926680.png)
+#### 获取和修改对象
+![](assets/Python学习/file-20260128145042660.png)
