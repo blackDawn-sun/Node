@@ -259,3 +259,5 @@ key 不可变类型，可以是序列和集合 ,value 任意类型
 ![](assets/Python学习/file-20260128144926680.png)
 #### 获取和修改对象
 ![](assets/Python学习/file-20260128145042660.png)
+#### 创建方法
+![](assets/Python学习/file-20260128145354981.png)
