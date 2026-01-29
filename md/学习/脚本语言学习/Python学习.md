@@ -120,6 +120,9 @@ for n in "abcdee": #相当于[a,b,c,d,e,e]
     print(f"n = {n}")  
 print("end for ")
 ```
+迭代器
+![](assets/Python学习/file-20260129123418793.png)
+![](assets/Python学习/file-20260129123514421.png)
 ## 函数
 
 ```python
