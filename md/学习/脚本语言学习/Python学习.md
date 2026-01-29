@@ -78,8 +78,8 @@ string.split(string) 分割返回为列表
 ![](assets/Python学习/file-20260128154214367.png)
 string.strip(string) 去除首尾包含的字符字符
 len(string) 长度
-max(string) 返回unicode编码最大的字符
-min(string) 返回unicode编码最小的字符
+max(string) 返回unicode编码最大的字符 [min,max特殊用法](Python学习.md#^635307)
+min(string) 返回unicode编码最小的字符 [min,max特殊用法](Python学习.md#^635307)
 sort(string) unicode编码排序后返回
 
 
@@ -331,6 +331,9 @@ cls 可以使用类属性
 ![](assets/Python学习/file-20260128165810178.png)
 ![](assets/Python学习/file-20260128170000425.png)
 ##### min,max函数
+
+^635307
+
 ![](assets/Python学习/file-20260128170202113.png)
 ##### 推导式（列表，字典，集合）
 ![](assets/Python学习/file-20260128170703193.png)
