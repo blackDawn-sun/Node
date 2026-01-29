@@ -760,6 +760,14 @@ with原理
 ### 目录操作
 ![](assets/Python学习/file-20260129145432615.png)
 ![500](assets/Python学习/file-20260129145602156.png)
-## 线程
+## 线程 和 进程
+### 创建进程
+引入包
+```python
+from multiprocessing import Process
+```
+![](assets/Python学习/file-20260129152524799.png)
+![](assets/Python学习/file-20260129152904434.png)
+
 
 
