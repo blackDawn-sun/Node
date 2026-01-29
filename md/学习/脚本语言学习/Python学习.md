@@ -768,6 +768,8 @@ from multiprocessing import Process
 ```
 ![](assets/Python学习/file-20260129152524799.png)
 ![](assets/Python学习/file-20260129152904434.png)
+### 锁
+
 
 
 
