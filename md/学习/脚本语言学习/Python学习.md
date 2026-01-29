@@ -357,6 +357,119 @@ cls 可以使用类属性
 ## 装饰器
 ### 函数装饰器
 
+```python
+def add(x,y,z=0):  
+    print("add开始执行")  
+    c = x+y+z  
+    print("add函数执行结束")  
+    return c  
+  
+def log1(fuc):  
+    print("log1开始执行")  
+    def go(*args,**kwargs):  
+        print("log1 增强功能开始执行")  
+        c = fuc(*args,**kwargs)  
+        print("log1 增强功能结束执行")  
+        return c  
+    return go  
+  
+#函数正常执行  
+# x = add(10,20)  
+# print(f"最终结果是：{x}")  
+'''  
+add开始执行  
+add函数执行结束  
+最终结果是：30  
+'''  
+  
+#装饰器 使用1  
+# x = log1(add)  
+# reap = x(10,20)  
+# print(f"最终结果是：{reap}")  
+"""  
+log1开始执行  
+log1 增强功能开始执行  
+add开始执行  
+add函数执行结束  
+log1 增强功能结束执行  
+最终结果是：30  
+"""  
+  
+##装饰器 使用2 add = log1(add)  
+reap = add(10,20)  
+print(f"最终结果是：{reap}")  
+"""  
+log1开始执行  
+log1 增强功能开始执行  
+add开始执行  
+add函数执行结束  
+log1 增强功能结束执行  
+最终结果是：30  
+"""
+```
 
+注解使用（主流）替换装饰器使用2
+```python
+def log1(fuc):  
+    print("log1开始执行")  
+    def go(*args,**kwargs):  
+        print("log1 增强功能开始执行")  
+        c = fuc(*args,**kwargs)  
+        print("log1 增强功能结束执行")  
+        return c  
+    return go  
+  
+@log1  
+def add(x,y,z=0):  
+    print("add开始执行")  
+    c = x+y+z  
+    print("add函数执行结束")  
+    return c  
+  
+reap = add(10,20,30)  
+print(f"最终结果: {reap}")  
+"""  
+log1开始执行  
+log1 增强功能开始执行  
+add开始执行  
+add函数执行结束  
+log1 增强功能结束执行  
+最终结果: 60  
+"""
+```
+注解带入参的
+```python
+def log1(msg):  
+    print(f"log1开始执行,传入的消息:{msg}")  
+    def p_msg(fuc):  
+        print(f"p_msg开始执行,传入的消息:{msg}")  
+        def go(*args,**kwargs):  
+            print(f"p_msg 增强功能开始执行,传入的消息:{msg}")  
+            c = fuc(*args,**kwargs)  
+            print(f"p_msg 增强功能结束执行,传入的消息:{msg}")  
+            return c  
+        return go  
+    return p_msg  
+  
+  
+@log1("hello")  
+def add(x,y,z=0):  
+    print("add开始执行")  
+    c = x+y+z  
+    print("add函数执行结束")  
+    return c  
+  
+reap = add(10,20,30)  
+print(f"最终结果: {reap}")  
+"""  
+log1开始执行,传入的消息:hello  
+p_msg开始执行,传入的消息:hello  
+p_msg 增强功能开始执行,传入的消息:hello  
+add开始执行  
+add函数执行结束  
+p_msg 增强功能结束执行,传入的消息:hello  
+最终结果: 60  
+"""
+```
 
-
+顺序和优先级问题
