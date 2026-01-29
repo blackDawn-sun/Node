@@ -852,5 +852,18 @@ if __name__ == "__main__":
     p2.start()  
     print("结束运行")
 ```
+### join
+join (等待时间) 
+```
+if __name__ == "__main__":  
+    print(f"开始创建进程,主进程是 {os.getpid()}")  
+    p1 = Process(target=process1,args=(lock,))  
+    p2 = Process(target=process2,args=(lock,20,30))  
+    p1.start()  
+    p2.start()  
+    p1.join() #代码所在的进程等P1进程结束后执行
+    p2.join()
+    print("结束运行")
+```
 
 
