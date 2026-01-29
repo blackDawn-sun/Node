@@ -612,3 +612,4 @@ raise except
 ![](assets/Python学习/file-20260129120143427.png)
 ## 模块引入
 ![](assets/Python学习/file-20260129120443690.png)
+![](assets/Python学习/file-20260129120551222.png)
