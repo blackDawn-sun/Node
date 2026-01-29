@@ -739,3 +739,12 @@ raise except
 ![](assets/Python学习/file-20260129120551222.png)
 ## 文件操作
 ![](assets/Python学习/file-20260129140140464.png)
+### 读取
+![](assets/Python学习/file-20260129143133437.png)
+![](assets/Python学习/file-20260129143231407.png)
+![500](assets/Python学习/file-20260129143339609.png)
+使用with  不用手动关闭文件
+![](assets/Python学习/file-20260129143632258.png)
+with原理
+![](assets/Python学习/file-20260129143841121.png)
+### 写入
