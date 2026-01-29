@@ -127,11 +127,65 @@ print("end for ")
 只要存在_iter_ 和_next_ 方法就是迭代器 
 方式一：
 ```python
-
+class Person:  
+    def __init__(self, name, age, sex, heigh, weigh):  
+        self.name = name  
+        self.age = age  
+        self.sex = sex  
+        self.heigh = heigh  
+        self.weigh = weigh  
+  
+    def __iter__(self):  
+        return PersonIterator(self)  
+  
+#迭代器
+class PersonIterator:  
+    def __init__(self, person):  
+        self.person = person  
+        self.__index = 0  
+        # self.__attrs = [person.name, person.age, person.sex, person.heigh, person.weigh]  
+        self.__attrs = list(p.__dict__.values())  
+  
+    def __next__(self):  
+        if self.__index >= len(self.__attrs):  
+            raise StopIteration  
+        else:  
+            value = self.__attrs[self.__index]  
+            self.__index += 1  
+            return value  
+  
+p = Person("战三", 16, '男', 170, 180)  
+for e in p:  
+    print(e)
 ```
 方式二: 
 ```python
-
+class Person:  
+    def __init__(self, name, age, sex, heigh, weigh):  
+        self.name = name  
+        self.age = age  
+        self.sex = sex  
+        self.heigh = heigh  
+        self.weigh = weigh  
+        self.__index = 0  
+        # self.__attrs = [person.name, person.age, person.sex, person.heigh, person.weigh]  
+        self.__attrs = list(self.__dict__.values())  
+  
+    def __iter__(self):  
+        self.__index = 0  
+        return self  
+  
+    def __next__(self):  
+        if self.__index >= len(self.__attrs):  
+            raise StopIteration  
+        else:  
+            value = self.__attrs[self.__index]  
+            self.__index += 1  
+            return value  
+  
+p = Person("战三", 16, '男', 170, 180)  
+for e in p:  
+    print(e)
 ```
 ## 函数
 
