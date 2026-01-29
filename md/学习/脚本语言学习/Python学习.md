@@ -542,6 +542,54 @@ resp = add(10,20,30)
 写法不同
 原理写法：
 ```python
-
+class Test1:  
+    def __init__(self,msg):  
+        self.msg = msg  
+  
+    def __call__(self, fuc):  
+        print(f"__call__ 开始执行,传入的消息:{self.msg}")  
+        def wrapper(*args, **kwargs):  
+            print(f"wrapper 增强功能开始执行,传入的消息:{self.msg}")  
+            c = fuc(*args, **kwargs)  
+            print(f"wrapper 增强功能结束执行,传入的消息:{self.msg}")  
+            return c  
+        print(f"__call__ 结束执行,传入的消息:{self.msg}")  
+        return wrapper  
+  
+def add(x,y,z=10):  
+    print("add开始执行")  
+    c = x+y+z  
+    print("add函数执行结束")  
+    return c  
+  
+hi = Test1("hi")  
+add = hi(add)  
+resp = add(10,20,30)  
+print(f"最终结果是：{resp}")
 ```
-
+注解写法：
+```python
+class Test1:  
+    def __init__(self,msg):  
+        self.msg = msg  
+  
+    def __call__(self, fuc):  
+        print(f"__call__ 开始执行,传入的消息:{self.msg}")  
+        def wrapper(*args, **kwargs):  
+            print(f"wrapper 增强功能开始执行,传入的消息:{self.msg}")  
+            c = fuc(*args, **kwargs)  
+            print(f"wrapper 增强功能结束执行,传入的消息:{self.msg}")  
+            return c  
+        print(f"__call__ 结束执行,传入的消息:{self.msg}")  
+        return wrapper  
+@Test1("hi")  #无入参保留（）
+def add(x,y,z=10):  
+    print("add开始执行")  
+    c = x+y+z  
+    print("add函数执行结束")  
+    return c  
+  
+  
+resp = add(10,20,30)  
+print(f"最终结果是：{resp}")
+```
