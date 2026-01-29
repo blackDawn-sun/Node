@@ -790,6 +790,33 @@ if __name__ == "__main__":
     print("结束运行")
 ```
 ![](assets/Python学习/file-20260129152904434.png)
+```python
+import os  
+from multiprocessing import Process  
+  
+  
+  
+def process1(n):  
+    num = 100  
+    for i in range(1,num+1):  
+        print(f"我是process1 进程,正在执行第 {i} 件事情: n:{n}")  
+        print(f"当前进程是 {os.getpid()}, 父进程是 {os.getppid()}")  
+  
+def process2(n,j):  
+    num = 100  
+    for i in range(1,num+1):  
+        print(f"我是process2 进程,正在执行第 {i} 件事情 n:{n} j:{j}")  
+        print(f"当前进程是 {os.getpid()}, 父进程是 {os.getppid()}")  
+  
+if __name__ == "__main__":  
+    num = 10  
+    print(f"开始创建进程,主进程是 {os.getpid()}")  
+    p1 = Process(target=process1,args=(10,))  
+    p2 = Process(target=process2,args=(20,30))  
+    p1.start()  
+    p2.start()  
+    print("结束运行")
+```
 ### 锁
 
 
