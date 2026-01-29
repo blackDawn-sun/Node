@@ -749,3 +749,8 @@ with原理
 ![](assets/Python学习/file-20260129143841121.png)
 ### 写入
 ![](assets/Python学习/file-20260129144912438.png)
+### 目录操作
+![](assets/Python学习/file-20260129145432615.png)
+![500](assets/Python学习/file-20260129145602156.png)
+### 文件操作
+
