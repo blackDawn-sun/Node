@@ -98,7 +98,7 @@ else:
 条件表达式
 ![](assets/Python学习/file-20260128164730801.png)
 ### 循环
-while
+#### while
 ```python
 n = 1  
 while n<10:  
@@ -106,7 +106,7 @@ while n<10:
     print(f"n= {n}")  
 print(f"end while , n= {n}")
 ```
-for
+#### for
 > 可以使用 continue  , break
 
 ```python
@@ -120,9 +120,19 @@ for n in "abcdee": #相当于[a,b,c,d,e,e]
     print(f"n = {n}")  
 print("end for ")
 ```
-迭代器
+#### 迭代器
 ![](assets/Python学习/file-20260129123418793.png)
 ![](assets/Python学习/file-20260129123514421.png)
+##### 手写迭代器
+只要存在_iter_ 和_next_ 方法就是迭代器 
+方式一：
+```python
+
+```
+方式二: 
+```python
+
+```
 ## 函数
 
 ```python
