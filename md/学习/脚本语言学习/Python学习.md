@@ -537,4 +537,11 @@ p_msg 增强功能结束执行,传入的消息:hello
 add = log1("hello")(log2("log2")(add))  
 resp = add(10,20,30)  
 ```
+### 类装饰器
+同理
+写法不同
+原理写法：
+```python
+
+```
 
