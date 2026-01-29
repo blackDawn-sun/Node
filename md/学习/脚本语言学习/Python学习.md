@@ -187,6 +187,63 @@ p = Person("战三", 16, '男', 170, 180)
 for e in p:  
     print(e)
 ```
+方式三 使用生成器
+```python
+# yield 
+class Person:  
+    def __init__(self, name, age, sex, heigh, weigh):  
+        self.name = name  
+        self.age = age  
+        self.sex = sex  
+        self.heigh = heigh  
+        self.weigh = weigh  
+        self.__index = 0  
+        # self.__attrs = [person.name, person.age, person.sex, person.heigh, person.weigh]  
+        self.__attrs = list(self.__dict__.values())  
+  
+    def __iter__(self):  
+       yield self.name  
+       yield self.age  
+       yield self.sex  
+       yield self.heigh  
+       yield self.weigh  
+  
+  
+  
+p = Person("战三", 16, '男', 170, 180)  
+for e in p:  
+    print(e)
+    
+# yield from
+class Person:  
+    def __init__(self, name, age, sex, heigh, weigh):  
+        self.name = name  
+        self.age = age  
+        self.sex = sex  
+        self.heigh = heigh  
+        self.weigh = weigh  
+        self.__index = 0  
+        # self.__attrs = [person.name, person.age, person.sex, person.heigh, person.weigh]  
+        self.__attrs = list(self.__dict__.values())  
+  
+    def __iter__(self):  
+        yield from self.__attrs  
+  
+  
+  
+p = Person("战三", 16, '男', 170, 180)  
+for e in p:  
+    print(e)
+```
+###### 生成器
+> 特殊的迭代器
+![](assets/Python学习/file-20260129134159421.png)
+![](assets/Python学习/file-20260129134610465.png)
+![](assets/Python学习/file-20260129135005673.png)
+![](assets/Python学习/file-20260129134911222.png)
+生成器表达式
+![](assets/Python学习/file-20260129135932157.png)
+
 ## 函数
 
 ```python
@@ -680,3 +737,5 @@ raise except
 ## 模块引入
 ![](assets/Python学习/file-20260129120443690.png)
 ![](assets/Python学习/file-20260129120551222.png)
+## 文件操作
+![](assets/Python学习/file-20260129140140464.png)
