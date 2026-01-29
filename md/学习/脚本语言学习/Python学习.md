@@ -473,3 +473,61 @@ p_msg 增强功能结束执行,传入的消息:hello
 ```
 
 顺序和优先级问题
+```python
+def log1(msg):  
+    print(f"log1开始执行,传入的消息:{msg}")  
+    def p_msg(fuc):  
+        print(f"p_msg开始执行,传入的消息:{msg}")  
+        def go(*args,**kwargs):  
+            print(f"p_msg 增强功能开始执行,传入的消息:{msg}")  
+            c = fuc(*args,**kwargs)  
+            print(f"p_msg 增强功能结束执行,传入的消息:{msg}")  
+            return c  
+        print(f"p_msg结束执行,传入的消息:{msg}")  
+        return go  
+    print(f"log1结束执行,传入的消息:{msg}")  
+    return p_msg  
+  
+def log2(msg):  
+    print(f"log2开始执行,传入的消息:{msg}")  
+    def p_msg2(fuc):  
+        print(f"p_msg2开始执行,传入的消息:{msg}")  
+        def go(*args,**kwargs):  
+            print(f"p_msg2 增强功能开始执行,传入的消息:{msg}")  
+            c = fuc(*args,**kwargs)  
+            print(f"p_msg2 增强功能结束执行,传入的消息:{msg}")  
+            return c  
+        print(f"p_msg2结束执行,传入的消息:{msg}")  
+        return go  
+    print(f"log2结束执行,传入的消息:{msg}")  
+    return p_msg2  
+  
+  
+@log1("hello")  
+@log2("log2")  
+def add(x,y,z=0):  
+    print("add开始执行")  
+    c = x+y+z  
+    print("add函数执行结束")  
+    return c  
+  
+reap = add(10,20,30)  
+print(f"最终结果: {reap}")  
+"""  
+log1开始执行,传入的消息:hello  
+log1结束执行,传入的消息:hello  
+log2开始执行,传入的消息:log2  
+log2结束执行,传入的消息:log2  
+p_msg2开始执行,传入的消息:log2  
+p_msg2结束执行,传入的消息:log2  
+p_msg开始执行,传入的消息:hello  
+p_msg结束执行,传入的消息:hello  
+p_msg 增强功能开始执行,传入的消息:hello  
+p_msg2 增强功能开始执行,传入的消息:log2  
+add开始执行  
+add函数执行结束  
+p_msg2 增强功能结束执行,传入的消息:log2  
+p_msg 增强功能结束执行,传入的消息:hello  
+最终结果: 60  
+"""
+```
