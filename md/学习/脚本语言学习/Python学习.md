@@ -767,6 +767,28 @@ with原理
 from multiprocessing import Process
 ```
 ![](assets/Python学习/file-20260129152524799.png)
+```python 
+from multiprocessing import Process  
+
+def process1():  
+    num = 1000  
+    for i in range(1,num+1):  
+        print(f"我是process1 进程,正在执行第 {i} 件事情")  
+  
+def process2():  
+    num = 1000  
+    for i in range(1,num+1):  
+        print(f"我是process2 进程,正在执行第 {i} 件事情")  
+  
+if __name__ == "__main__":  
+    num = 100000  
+    print("开始创建进程")  
+    p1 = Process(target=process1)  
+    p2 = Process(target=process2)  
+    p1.start()  
+    p2.start()  
+    print("结束运行")
+```
 ![](assets/Python学习/file-20260129152904434.png)
 ### 锁
 
