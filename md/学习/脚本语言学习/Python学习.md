@@ -598,3 +598,9 @@ print(f"最终结果是：{resp}")
 类似java int,List 之类的类型限制，Python算作规定会有黄色提示，如果强行改变类型也是可以的
 格式 变量：类型
 函数（入参：类型，入参： 类型）-> 返回值类型
+## 异常处理
+try except
+![](assets/Python学习/file-20260129115519193.png)
+try except else finally
+![](assets/Python学习/file-20260129115720312.png)
+![](assets/Python学习/file-20260129115636143.png)
