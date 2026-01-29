@@ -599,8 +599,16 @@ print(f"最终结果是：{resp}")
 格式 变量：类型
 函数（入参：类型，入参： 类型）-> 返回值类型
 ## 异常处理
-try except
+### try except
 ![](assets/Python学习/file-20260129115519193.png)
-try except else finally
+### try except else finally
 ![](assets/Python学习/file-20260129115720312.png)
 ![](assets/Python学习/file-20260129115636143.png)
+### 手动抛异常
+```python
+raise except
+```
+### 自定义异常类
+![](assets/Python学习/file-20260129120143427.png)
+## 模块引入
+![](assets/Python学习/file-20260129120443690.png)
