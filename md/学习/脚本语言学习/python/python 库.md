@@ -109,7 +109,28 @@ payload = {
 data=json.dumps(payload)
 ```
 
-
+## re
+导入
+```python
+import re
+```
+正则表达式：
+```python
+def ti_qu_time(file_name):  
+    pattern1 = r"\d{4}-\d{2}-\d{2} \d{2}-\d{2}-\d{2}-\d{3}"  
+    time_str = re.findall(pattern1, file_name)  
+    return time_str[0] if time_str else "1"
+    
+def rename_video_name(file_name):  
+    # 去时间 格式如2026-01-23 10-15-55-929  
+    pattern = r"\d{4}-\d{2}-\d{2} \d{2}-\d{2}-\d{2}-\d{3}"  
+    new_filename = re.sub(pattern, "", file_name)  
+    # 去空格  
+    new_filename = new_filename.strip()  
+    new_filename = re.sub(r"\s+", "", new_filename)  
+    # print(new_filename)  
+    return new_filename
+```
 # 第三方库
 修改第三方
 
