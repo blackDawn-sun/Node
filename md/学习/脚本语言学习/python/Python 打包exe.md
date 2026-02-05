@@ -12,4 +12,5 @@ pip install pillow
 ```sh
 #
 pyinstaller -F -i 1.ico --add-data "resource;resource" win.py
+pyinstaller -F -i 1.ico win.py
 ```
