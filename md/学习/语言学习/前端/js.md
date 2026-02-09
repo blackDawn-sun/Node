@@ -28,9 +28,7 @@
         //发送请求  
         xhr.send()  
     }  
-  
-  
-  
+
 </script>  
 </body>  
 </html>
