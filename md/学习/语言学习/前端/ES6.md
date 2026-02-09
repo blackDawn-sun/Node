@@ -80,3 +80,40 @@ let fn5 = x=>x+1
 </body>  
 </html>
 ```
+## 可变参数
+函数入参
+```js
+function console_arr(a,b,c,... arr) {  
+    console.log(a,b,c)  
+    console.log(arr)  
+}  
+  
+console_arr(1,2,3,4,5,6)
+```
+函数调用
+```js
+function console_arr(a,b,c) {  
+    console.log(a,b,c)  
+}  
+arr = [1,2,3,4,5,6]  
+console_arr(... arr)
+```
+合并数组
+```js
+let arr1 = [1,2,3]  
+let arr2 = [4,5,6]  
+let arr3 = [... arr1,... arr2]  
+console.log(arr3)
+```
+合并对象
+```js
+let person1 = {name: "张三"}  
+let person2 = {age: 15}  
+let person3 = {sex: "男"}  
+let person4 = {...person1, ...person2, ...person3}  
+console.log(person4)
+```
+## 类
+```
+
+```
