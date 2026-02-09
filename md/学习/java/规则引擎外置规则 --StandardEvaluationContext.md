@@ -1,4 +1,7 @@
 #StandardEvaluationContext
+其他方式：
+>  Drools AviatorEvaluator
+
 使用 `StandardEvaluationContext`（SpEL）实现“外置规则”，核心思路是**将 SpEL 表达式字符串存储在外部**（如数据库、配置中心、文件），并在运行时读取该字符串，利用 SpEL 的 `ExpressionParser` 进行动态解析和执行。
 
 相比于硬编码在 Java 类中，这种方式实现了规则与代码的解耦。
