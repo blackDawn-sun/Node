@@ -114,6 +114,51 @@ let person4 = {...person1, ...person2, ...person3}
 console.log(person4)
 ```
 ## 类
-```
+```js
+class cc{  
+    eat(food){  
+        console.log(food);  
+    }  
+  
+}  
+class Person extends cc{  
+    name;  
+    age;  
+    sex = "男";  
+    #name = "10" //私有属性  
+    //构造方法  
+    constructor(name) {  
+        super();  
+        this.name = name;  
+    }  
+    //静态方法  
+    static sum(a,b){  
+        return a + b;  
+    }  
+    //set方法  
+    set rename(name){  
+        console.log("setter");  
+        this.#name = name;  
+    }  
+  
+    //get方法  
+    get rename(){  
+        console.log("getter");  
+        return this.#name;  
+    }  
+}  
+let person = new Person();  
+person.name = "Jan";  
+person.rename= "John2";  
+person.age = 12  
+console.log(person);  
+console.log(person.rename);  
+person.eat("水果")
+//结果
+setter
+Person { name: 'Jan', age: 12, sex: '男' }
+getter
+John2
+水果
 
 ```
