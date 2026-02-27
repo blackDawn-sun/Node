@@ -56,3 +56,38 @@ Need to install the following packages:
 create-vite@8.3.0
 Ok to proceed? (y) y //第一次会出现，下载vite
 ```
+## vue语法
+### 文本渲染
+v-text
+```vue
+<span v-text="ref_count"></span>
+```
+v-html
+### 属性渲染
+v-bind:属性=“”
+简写： :属性
+
+```vue
+<script setup>
+	const data= {  
+	  logo: "http://www.atguigu.com/images/index_new/logo.png",  
+	  name: "尚硅谷",  
+	  url: "http://www.atguigu.com"  
+	}
+</script>
+<template>
+	<a v-bind:href="data.url">  
+	  <img v-bind:src="data.logo" v-bind:title="data.name">  
+	  <img :src="data.logo" :title="data.name">  简写
+	</a>
+</template>
+<style scoped>  
+  
+</style>
+```
+### 事件渲染
+v-on:事件名称 = “函数名”
+v-on:事件名 可以简写  @事件名
+原生的js事件 on*** onclick ondbclick onblur
+
+
