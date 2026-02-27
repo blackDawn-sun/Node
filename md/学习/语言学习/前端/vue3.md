@@ -6,7 +6,7 @@
 ```
 ### 本地文件导入
 ![](assets/vue3/file-20260227141329273.js)
-## Vue快速使用
+## Vue非工程化使用
 ```html
 <!doctype html>  
 <html lang="en">  
@@ -21,7 +21,8 @@
   
 <div id="app">  
     <h1>{{title}}</h1>  
-    <h1 v-text="message">你好</h1>  
+    <h1 v-text="message" v-bind:style="colorStyle">你好</h1>  
+    <button @click="fun1()"> 按钮 </button>  
 </div>  
   
 <script>  
@@ -29,9 +30,13 @@
         setup(){  
             let message = 'hello world'  
             let title = 'Hello World title'  
+            let colorStyle = {"background-color":"yellow"};  
+            let fun1 = function() {  
+                alert("Hello World!")  
+            }  
             // return 返回的变量和方法才能和HTML元素关联  
             return {  
-                message,title  
+                message,title,colorStyle,fun1  
             }  
         }  
     })  
@@ -42,4 +47,9 @@
   
 </body>  
 </html>
+```
+## Vue工程化
+### 安装vite
+```
+**``**
 ```
