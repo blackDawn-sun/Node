@@ -51,5 +51,8 @@
 ## Vue工程化
 ### 安装vite
 ```
-**``**
+npm create vite@latest 
+Need to install the following packages:
+create-vite@8.3.0
+Ok to proceed? (y) y //第一次会出现，下载vite
 ```

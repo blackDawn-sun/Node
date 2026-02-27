@@ -19,7 +19,7 @@ node -v
 
 ## 设置npm镜像源
 ```sh
-npm config set registry https://registry.npm.taobao.org/
+npm config set registry https://registry.npmmirror.com
 npm config get registry
 
 #回退默认值：
