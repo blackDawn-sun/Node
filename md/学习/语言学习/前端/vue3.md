@@ -255,3 +255,42 @@ v-for
 双向绑定 v-model : 页面上的数据由于用户的操作造成了改变，也会同步修改对应的响应式数据双向绑定一般都用于表单标签
 双向绑定也有人称呼为收集表单信息的命令v-model:value="数据” 双向绑定
 v-model:value 必须省略 :value 
+```vue
+<script setup>
+	import {ref,reactive,toRef,toRefs} from 'vue';
+	let text_input = ref("你好")  
+	let user = reactive({  
+	  name: "小米",  
+	  password: "123456",  
+	  hbs:[],  
+	  sex:"",  
+	  area:""  
+	})
+</script>
+<template>
+<!--    <input type="text" v-model:value="text_input"> {{text_input}}   错误示范-->  
+    <input type="text" v-model="text_input"> {{text_input}}  
+    <br>  
+   用户名：  <input type="text" v-model="user.name"></input>  
+    密码： <input type="password" v-model="user.password"></input>  
+  
+    <br>    爱好：  
+    唱<input type="checkbox" v-model="user.hbs" value="sing">  
+    跳<input type="checkbox" v-model="user.hbs" value="dance">  
+    rap<input type="checkbox" v-model="user.hbs" value="rag">  
+  
+    <br>    单选框-性别：男 <input type="radio" name="sex" v-model="user.sex" value="男">  
+    女 <input type="radio" name="sex" v-model="user.sex" value="女">  
+    <br>    地区  
+    <select name="area" id="ae" v-model="user.area">  
+      <option value="南京">南京</option>  
+      <option value="北京">北京</option>  
+      <option value="安徽">安徽</option>  
+    </select>  
+    <br>    {{user}}  
+    <br>
+</template>
+<style scoped>  
+  
+</style>
+```
