@@ -173,17 +173,36 @@ reactive(对象)
 </style>
 ```
 #### toRef 和 toRefs
-将对象里的数据转成响应式数据
+将对象里的数据转成响应式数据 reactive 转ref
 ```vue
 <script setup>
-	import {toRefs} from 'vue';
-	
+	import {reactive,toRef,toRefs} from 'vue';
+	let person = {  
+	  age: 10,  
+	  name: "小米",  
+	  sex: "男",  
+	  height: 180  
+	}  
+	let person_reactive = reactive(person)  
+	let {age,height} = toRefs(person)  //解构表达式 多个属性
+	let h_age = toRef(person_reactive,"age")  //单个属性
+	function age_to_refs_cr() {  
+	  h_age.value--  
+	  height.value--  
+	  alert(h_age.value)
 	
 </script>
 <template>
-
+	<button @click="age_to_refs_cr()">h_age --</button>  
+	age:{{person_reactive.age}}  
+	<br>  
+	height:{{person_reactive.height}}
 </template>
 <style scoped>  
   
 </style>
 ```
+### 条件语法
+v-if 
+v-else 和上一个v-if 取反 （原理，源码不展示）
+v-show 为false不展示html（原理通过 css样式 display:none 实现）
