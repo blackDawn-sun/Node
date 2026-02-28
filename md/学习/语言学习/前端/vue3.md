@@ -225,8 +225,9 @@ reactive(对象)
 </style>
 ```
 #### 监听响应式数据
+watch 和 
 ```vue
-watch
+
 ```
 
 ### 条件语法
