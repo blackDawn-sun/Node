@@ -172,6 +172,7 @@ reactive(对象)
   
 </style>
 ```
+
 #### toRef 和 toRefs
 将对象里的数据转成响应式数据 reactive 转ref
 ```vue
@@ -202,6 +203,32 @@ reactive(对象)
   
 </style>
 ```
+
+#### 计算属性
+计算属性当响应式数据发生改变时才会执行，数据不改变时再次使用会使用上次的结果
+```vue
+<script setup>
+	import {ref,reactive,toRef,toRefs,computed} from 'vue';
+	let r_age = ref(20)  
+	let chengren = computed(() => {  
+	  return r_age.value>18?"成人":"未成年"  
+	})
+</script>
+<template>
+	  
+	成人了吗？--{{chengren}} <br>  
+	成人了吗？--{{chengren}} <br>  
+	成人了吗？--{{chengren}} <br>
+</template>
+<style scoped>  
+  
+</style>
+```
+#### 监听响应式数据
+```vue
+watch
+```
+
 ### 条件语法
 v-if 
 v-else 和上一个v-if 取反 （原理，源码不展示）
@@ -223,7 +250,7 @@ v-show 为false不展示html（原理通过 css样式 display:none 实现）
   
 </style>
 ```
-循环列表语法
+### 循环列表语法
 v-for
 ```vue
 <script setup>
