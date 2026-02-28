@@ -225,9 +225,31 @@ reactive(对象)
 </style>
 ```
 #### 监听响应式数据
-watch 和 
+watch 和 watchEffect 响应式数据改变时会执行
+watch 监听目标响应式数据，以下是简单的ref响应式数据的监听
+watchEffect 监听函数内的响应式数据
 ```vue
+<script setup>
+	import {ref,reactive,toRef,toRefs,computed,watch,watchEffect} from 'vue';
+	let firstName = ref("")  
+	let tip = ref("")  
+	watch(firstName,(newName,oldName)=>{  
+	  tip = oldName+"变为了"+newName  
+	  console.log("${oldName }变为了 ${newName}")  
+	})  
+	// watchEffect(()=>{  
+	//   tip = firstName  
+	// })
+</script>
+<template>
 
+  firstName: <input type="text" v-model="firstName"> <br>  
+  <span>{{tip}}</span>  
+
+</template>
+<style scoped>  
+  
+</style>
 ```
 
 ### 条件语法
