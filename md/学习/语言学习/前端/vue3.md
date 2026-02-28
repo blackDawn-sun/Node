@@ -346,5 +346,205 @@ v-model:value 必须省略 :value
 ```
 ## vue组件传值
 父传子
+```
 
+```
 子传父
+```
+
+```
+
+
+## 附 
+app.vue:
+```vue
+<script setup>  
+import {ref,reactive,toRef,toRefs,computed,watch,watchEffect} from 'vue';  
+//双向绑定 reflet ref_count = ref(1)// ref(1) -> {value:1}  
+function click_add() {  
+  ref_count.value++  
+}  
+  
+function click_cri() {  
+  ref_count.value--  
+}  
+  
+function showCount() {  
+  alert(ref_count.value)  
+}  
+  
+const data = {  
+  logo: "http://www.atguigu.com/images/index_new/logo.png",  
+  name: "尚硅谷",  
+  url: "http://www.atguigu.com"  
+}  
+  
+  
+function fun1() {  
+  alert("hi")  
+}  
+  
+let a = ref(1)  
+  
+function fun2() {  
+  a.value++  
+}  
+  
+function fun3(event) {  
+  let flag = confirm("确定要访问目标链接吗")  
+  if (!flag) {// 原生js编码方式阻止组件的默认行为  
+    event.preventDefault()  
+  }  
+}  
+  
+function fun4() {  
+  alert("超链接被点击了")  
+}  
+  
+let person = {  
+  age: 10,  
+  name: "小米",  
+  sex: "男",  
+  height: 180  
+}  
+let person_reactive = reactive(person)  
+function agg_add(){  
+  person_reactive.age++  
+}  
+  
+let {age,height} = toRefs(person)  
+let h_age = toRef(person_reactive,"age")  
+function age_to_refs_cr() {  
+  h_age.value--  
+  height.value--  
+  alert(h_age.value)  
+}  
+  
+  let flag = ref(true)  
+  
+  let foods = reactive([{  
+    id: 1,  
+    item01: "可乐"  
+  },{  
+    id: 2,  
+    item01: "炸鸡"  
+  },{  
+    id: 3,  
+    item01: "汉堡"  
+  }])  
+  
+let text_input = ref("你好")  
+let user = reactive({  
+  name: "小米",  
+  password: "123456",  
+  hbs:[],  
+  sex:"",  
+  area:""  
+})  
+  
+let r_age = ref(20)  
+let chengren = computed(() => {  
+  return r_age.value>18?"成人":"未成年"  
+})  
+  
+let firstName = ref("")  
+let tip = ref("")  
+watch(firstName,(newName,oldName)=>{  
+  tip = oldName+"变为了"+newName  
+  console.log("${oldName }变为了 ${newName}")  
+})  
+// watchEffect(()=>{  
+//   tip = firstName  
+// })  
+  
+</script>  
+  
+<template>  
+  
+  <div>    <a v-bind:href="data.url">  
+      <img v-bind:src="data.logo" v-bind:title="data.name">  
+    </a>  
+    <h1>你好</h1>  
+    <button @click="click_add()">+</button>  
+    <!--    <span > {{ ref_count }}</span>-->  
+    <span v-text="ref_count"></span>  
+    <button @click="click_cri()">-</button>  
+    <button @click="showCount()">showCount</button>  
+  
+    <br>    <!--事件的绑定函数 -->  
+    <button v-on:click="fun1()">hello</button>  
+    <button v-on:click="fun2()">+</button>  
+    <!--内联事件处理器-->  
+    <button v-on:click="a++">+</button>  
+    <!--事件的修饰符.once事件只绑定一次 prevent 修饰符阻止组件的默认行为 -->  
+    <button v-on:click.once="a++">+</button>  
+    {{ a }}  
+    <br>  
+    <a href="http://www.atguigu.com" v-on:click="fun3($event)">尚硅谷</a>  
+    <a href="http://www.atguigu.com" v-on:click.prevent="fun4()">尚硅</a>  
+  
+    <br>    <button @click="agg_add()">age +</button>  
+    {{person_reactive.age}}  
+  
+  
+    <br>  
+    <button @click="age_to_refs_cr()">h_age --</button>  
+    age:{{person_reactive.age}}  
+    <br>  
+    height:{{person_reactive.height}}  
+  
+    <br>  
+    <span v-if="flag">你好</span>  
+<!--    <span v-else-if="flag===0">else ni hao </span>-->  
+    <span v-else>你不好</span>  
+    <span v-show="flag">我是大佬</span>  
+    <button @click="flag=!flag">反转</button>  
+    {{flag}}  
+  
+    <br>  
+    <ul>      <li v-for="(food,index) in foods" v-bind:key="food.id">  
+          index {{index}} food {{food.item01}} foodid {{food.id}}  
+  
+      </li>  
+    </ul>  
+  
+<!--    <input type="text" v-model:value="text_input"> {{text_input}}   错误示范-->  
+    <input type="text" v-model="text_input"> {{text_input}}  
+    <br>  
+   用户名：  <input type="text" v-model="user.name"></input>  
+    密码： <input type="password" v-model="user.password"></input>  
+  
+    <br>    爱好：  
+    唱<input type="checkbox" v-model="user.hbs" value="sing">  
+    跳<input type="checkbox" v-model="user.hbs" value="dance">  
+    rap<input type="checkbox" v-model="user.hbs" value="rag">  
+  
+    <br>    单选框-性别：男 <input type="radio" name="sex" v-model="user.sex" value="男">  
+    女 <input type="radio" name="sex" v-model="user.sex" value="女">  
+    <br>    地区  
+    <select name="area" id="ae" v-model="user.area">  
+      <option value="南京">南京</option>  
+      <option value="北京">北京</option>  
+      <option value="安徽">安徽</option>  
+    </select>  
+    <br>    {{user}}  
+    <br>  
+  
+    成人了吗？--{{chengren}} <br>  
+    成人了吗？--{{chengren}} <br>  
+    成人了吗？--{{chengren}} <br>  
+  
+  
+    <br>    firstName: <input type="text" v-model="firstName"> <br>  
+    <span>{{tip}}</span>  
+  </div>  
+  
+  
+  
+</template>  
+  
+  
+<style scoped>  
+  
+</style>
+```
