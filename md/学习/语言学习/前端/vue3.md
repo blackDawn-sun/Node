@@ -63,7 +63,7 @@ v-text
 <span v-text="ref_count"></span>
 ```
 v-html
-### 属性渲染
+### 属性渲染 --单向绑定
 v-bind:属性=“”
 简写： :属性
 
@@ -94,7 +94,7 @@ v-on:事件名 可以简写  @事件名
 	function fun1() {  
 	  alert("hi")  
 	}  
-	let a = ref(1)  //双向绑定
+	let a = ref(1)  //响应式数据
 	function fun2() {  
 	  a.value++  
 	}  
@@ -133,7 +133,7 @@ template中使用不需要.value
 ```vue
 <script setup>
 	import {ref} from 'vue';
-	let a = ref(1)  //双向绑定
+	let a = ref(1)  //响应式数据
 	function fun1() {  
 	  a.value++  
 	}  
@@ -250,3 +250,8 @@ v-for
   
 </style>
 ```
+### 双向绑定
+
+双向绑定 v-model : 页面上的数据由于用户的操作造成了改变，也会同步修改对应的响应式数据双向绑定一般都用于表单标签
+双向绑定也有人称呼为收集表单信息的命令v-model:value="数据” 双向绑定
+v-model:value 一般省略 :value
