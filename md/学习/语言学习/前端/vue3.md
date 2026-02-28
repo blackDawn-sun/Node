@@ -344,3 +344,7 @@ v-model:value 必须省略 :value
   
 </style>
 ```
+## vue组件传值
+父传子
+
+子传父
