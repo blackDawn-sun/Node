@@ -206,3 +206,47 @@ reactive(对象)
 v-if 
 v-else 和上一个v-if 取反 （原理，源码不展示）
 v-show 为false不展示html（原理通过 css样式 display:none 实现）
+```vue
+<script setup>
+	import {ref} from 'vue';
+	let flag = ref(true)
+</script>
+<template>
+    <span v-if="flag">你好</span>  
+<!--    <span v-else-if="flag===0">else ni hao </span>-->  
+    <span v-else>你不好</span>  
+    <span v-show="flag">我是大佬</span>  
+    <button @click="flag=!flag">反转</button>  
+    {{flag}}
+</template>
+<style scoped>  
+  
+</style>
+```
+循环列表语法
+v-for
+```vue
+<script setup>
+	import {ref,reactive,toRef,toRefs} from 'vue';
+	let foods = reactive([{  
+	  id: 1,  
+	  item01: "可乐"  
+	},{  
+	  id: 2,  
+	  item01: "炸鸡"  
+	},{  
+	  id: 3,  
+	  item01: "汉堡"  
+	}])
+</script>
+<template>
+	<ul>  
+	  <li v-for="(food,index) in foods" v-bind:key="food.id">  
+	      index {{index}} food {{food.item01}} foodid {{food.id}}  
+	  </li>  
+	</ul>
+</template>
+<style scoped>  
+  
+</style>
+```
