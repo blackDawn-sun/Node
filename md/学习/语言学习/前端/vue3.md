@@ -172,7 +172,7 @@ reactive(对象)
   
 </style>
 ```
-#### toRef
+#### toRef 和 toRefs
 将对象里的数据转成响应式数据
 ```vue
 <script setup>
