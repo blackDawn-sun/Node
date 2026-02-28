@@ -254,4 +254,4 @@ v-for
 
 双向绑定 v-model : 页面上的数据由于用户的操作造成了改变，也会同步修改对应的响应式数据双向绑定一般都用于表单标签
 双向绑定也有人称呼为收集表单信息的命令v-model:value="数据” 双向绑定
-v-model:value 一般省略 :value
+v-model:value 必须省略 :value 
