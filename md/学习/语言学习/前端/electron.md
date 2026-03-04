@@ -104,8 +104,10 @@ app.on('window-all-closed', () => {
 ```sh
 npm start
 ```
-### 6. 添加安全策略
-
+### 6. 添加内容安全策略
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';" />
+```
 ### 7. 热部署
 安装nodemon
 ```sh
