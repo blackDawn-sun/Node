@@ -81,21 +81,22 @@ function createWindow(){
         height: 600,  
         autoHideMenuBar: true  //关闭菜单栏
     })  
+   // win.loadFile("./pages/index.html")
     win.loadURL('https://www.douyin.com/')  
   
 }  
   
-// == 关键 == 可用 app.whenReady().then(() => {})
+// == 关键 == 可用 app.whenReady().then(() => {}) 
 app.on('ready', ()=>{  
     createWindow()  
   
-    // 兼容苹果系统，应用激活时创建窗口  
+    // 兼容苹果系统，应用激活时创建窗口  （可选）
     app.on('activate', () => {  
         if (BrowserWindow.getAllWindows().length === 0) createWindow()  
     })  
 })  
   
-// 兼容window 所有窗口关闭时，程序结束  
+// 兼容window 所有窗口关闭时，程序结束  （可选）
 app.on('window-all-closed', () => {  
     if (process.platform !== 'darwin') app.quit()  
 })
@@ -104,11 +105,11 @@ app.on('window-all-closed', () => {
 ```sh
 npm start
 ```
-### 6. 添加内容安全策略
+### 6. 添加内容安全策略（可选）
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';" />
 ```
-### 7. 热部署
+### 7. 热部署（可选）
 安装nodemon
 ```sh
 npm i nodemon
@@ -148,4 +149,5 @@ npm i nodemon
   "restartable": "r"  
 }
 ```
-## 原生html方式 
+## 预加载脚本
+
