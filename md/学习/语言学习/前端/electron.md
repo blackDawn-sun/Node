@@ -151,3 +151,183 @@ npm i nodemon
 ```
 ## 预加载脚本
 
+### 预加载脚本使用
+例如将node脚本信息传到渲染进程里
+主进程main.js 
+增加webPreferences 配置
+```js
+const {app, BrowserWindow} = require('electron')  
+const path = require("node:path");  
+
+function createWindow(){  
+    const win =  new BrowserWindow({  
+        width: 800,  
+        height: 600,  
+        autoHideMenuBar: true, //关闭菜单栏  
+        webPreferences: {  
+            preload: path.join(__dirname, 'preload.js')  //填绝对地址
+        }  
+    })  
+  
+    // win.loadURL('https://www.douyin.com/')  
+    win.loadFile("./pages/index.html")  
+  
+}  
+  
+// == 关键 == 可用 app.whenReady().then(() => {})
+app.on('ready', ()=>{  
+    createWindow()  
+  
+    // 兼容苹果系统，应用激活时创建窗口  
+    app.on('activate', () => {  
+        if (BrowserWindow.getAllWindows().length === 0) createWindow()  
+    })  
+})  
+  
+// 兼容window 所有窗口关闭时，程序结束  
+app.on('window-all-closed', () => {  
+    if (process.platform !== 'darwin') app.quit()  
+})
+```
+预加载脚本 项目位置/preload.js
+preload.js
+```js
+// node 版本  
+console.log("preload",process.version);  
+const {contextBridge} = require('electron');  
+contextBridge.exposeInMainWorld('myApi',{  
+    version:process.version
+})
+```
+渲染进程
+js
+```js
+const btn1 = document.getElementById("btn1");  
+
+btn1.onclick = function(){  
+  
+    alert(myApi.version);  
+}  
+
+```
+html
+```html
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>hello</title>  
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';" />  
+  
+</head>  
+<body>  
+<h1>  
+    hello,word!  
+    <button id="btn1"> 点我 </button>  
+
+    <script src="./js/index.js"></script>  
+</h1>  
+</body>  
+</html>
+```
+
+
+### 渲染进程=》（预加载脚本）=》主进程
+
+#### 预加载脚本preload.js
+ipcRenderer,ipcRenderer.send
+```js
+// node 版本  
+console.log("preload",process.version);  
+const {contextBridge,ipcRenderer} = require('electron');  
+contextBridge.exposeInMainWorld('myApi',{  
+    version:process.version,  
+    mysave:(value)=>{  
+        ipcRenderer.send("file-value", value);  
+    }  
+})
+```
+#### 渲染进程
+js
+```js
+const btn1 = document.getElementById("btn1");  
+const user = document.getElementById("user");  
+const btn2 = document.getElementById("btn2");  
+  
+btn1.onclick = function(){  
+  
+    alert(myApi.version);  
+}  
+  
+btn2.onclick = function(){  
+    myApi.mysave(user.value);  
+}
+```
+html
+```html
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>hello</title>  
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';" />  
+  
+</head>  
+<body>  
+<h1>  
+    hello,word!  
+    <button id="btn1"> 点我 </button>  
+       <br>    <br>    输入内容：  
+    <input type="text" id="user">  
+    <button id="btn2">写入文件</button>  
+
+    <script src="./js/index.js"></script>  
+</h1>  
+</body>  
+</html>
+```
+#### 主进程
+ipcMain,ipcMain.on
+```js
+const {app, BrowserWindow,ipcMain} = require('electron')  
+const path = require("node:path");  
+const fs = require('fs');  //写入文件 node api
+  
+  
+function saveFile(event,data){  
+    fs.writeFileSync("d://hellow.txt", data)  
+}  
+  
+function createWindow(){  
+    const win =  new BrowserWindow({  
+        width: 800,  
+        height: 600,  
+        autoHideMenuBar: true, //关闭菜单栏  
+        webPreferences: {  
+            preload: path.join(__dirname, 'preload.js')  
+        }  
+    })  
+  
+    ipcMain.on('file-value', saveFile)  
+  
+  
+    // win.loadURL('https://www.douyin.com/')  
+    win.loadFile("./pages/index.html")  
+  
+}  
+  
+// == 关键 == 可用 app.whenReady().then(() => {})app.on('ready', ()=>{  
+    createWindow()  
+  
+    // 兼容苹果系统，应用激活时创建窗口  
+    app.on('activate', () => {  
+        if (BrowserWindow.getAllWindows().length === 0) createWindow()  
+    })  
+})  
+  
+// 兼容window 所有窗口关闭时，程序结束  
+app.on('window-all-closed', () => {  
+    if (process.platform !== 'darwin') app.quit()  
+})
+```
+### 主进程=》（预加载脚本）=》渲染进程
