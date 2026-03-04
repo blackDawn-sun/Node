@@ -1,0 +1,18 @@
+{
+  "name": "wsjy",
+  "version": "1.0.0",
+  "description": "WSJY DOWNLOAD",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "BG",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^40.6.1"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

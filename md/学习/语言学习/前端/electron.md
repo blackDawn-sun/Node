@@ -1,5 +1,5 @@
 #electron 
-## 原生html方式
+## 原生html方式 快速启动
 
 ### 1. 创建文件夹并初始化
 ```sh
@@ -73,5 +73,77 @@ package.json
 ### 4.创建main.js文件
 main.js
 ```js
-
+const {app, BrowserWindow} = require('electron')  
+  
+function createWindow(){  
+    const win =  new BrowserWindow({  
+        width: 800,  
+        height: 600,  
+        autoHideMenuBar: true  //关闭菜单栏
+    })  
+    win.loadURL('https://www.douyin.com/')  
+  
+}  
+  
+// == 关键 == 可用 app.whenReady().then(() => {})
+app.on('ready', ()=>{  
+    createWindow()  
+  
+    // 兼容苹果系统，应用激活时创建窗口  
+    app.on('activate', () => {  
+        if (BrowserWindow.getAllWindows().length === 0) createWindow()  
+    })  
+})  
+  
+// 兼容window 所有窗口关闭时，程序结束  
+app.on('window-all-closed', () => {  
+    if (process.platform !== 'darwin') app.quit()  
+})
 ```
+### 5.启动
+```sh
+npm start
+```
+### 6. 添加安全策略
+
+### 7. 热部署
+安装nodemon
+```sh
+npm i nodemon
+```
+修改package.json start 为nodemon --exec electron .
+```
+{  
+  "name": "wsjy",  
+  "version": "1.0.0",  
+  "description": "WSJY DOWNLOAD",  
+  "main": "main.js",  
+  "scripts": {  
+    "start": "nodemon --exec electron .",  
+    "test": "echo \"Error: no test specified\" && exit 1"  },  
+  "author": "BG",  
+  "license": "ISC",  
+  "devDependencies": {  
+    "electron": "^40.6.1"  
+  },  
+  "dependencies": {  
+    "nodemon": "^3.1.14"  
+  }  
+}
+```
+项目文件夹下增加nodemon.json配置
+```json
+{  
+  "ignore": [  
+    "node_modules",  
+    "dist"  
+  ],  
+  "watch": [  
+    "*",  
+    "*"  
+  ],  
+  "ext": "html,js,css",  
+  "restartable": "r"  
+}
+```
+## 原生html方式 
