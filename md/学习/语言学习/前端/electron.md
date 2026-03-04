@@ -71,4 +71,7 @@ package.json
 }
 ```
 ### 4.创建main.js文件
+main.js
+```js
 
+```
