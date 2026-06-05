@@ -331,3 +331,92 @@ app.on('window-all-closed', () => {
 })
 ```
 ### 主进程=》（预加载脚本）=》渲染进程
+#### 主进程
+ipcMain,ipcMain.handle
+```js
+const {app, BrowserWindow,ipcMain} = require('electron')  
+const path = require("node:path");  
+const fs = require('fs');  
+  
+  
+function saveFile(event,data){  
+    fs.writeFileSync("d://hellow.txt", data)  
+}  
+function readFile(){  
+    let str = fs.readFileSync("d://hellow.txt").toString();  
+    console.log("###",str);  
+    return str;  
+}  
+  
+function createWindow(){  
+    const win =  new BrowserWindow({  
+        width: 800,  
+        height: 600,  
+        autoHideMenuBar: true, //关闭菜单栏  
+        webPreferences: {  
+            preload: path.join(__dirname, 'preload.js')  
+        }  
+    })  
+  
+    ipcMain.on('file-value', saveFile)  
+    ipcMain.handle('file-read', readFile);  
+  
+    // win.loadURL('https://www.douyin.com/')  
+    win.loadFile("./pages/index.html")  
+  
+}  
+  
+// == 关键 == 可用 app.whenReady().then(() => {})app.on('ready', ()=>{  
+    createWindow()  
+  
+    // 兼容苹果系统，应用激活时创建窗口  
+    app.on('activate', () => {  
+        if (BrowserWindow.getAllWindows().length === 0) createWindow()  
+    })  
+})  
+  
+// 兼容window 所有窗口关闭时，程序结束  
+app.on('window-all-closed', () => {  
+    if (process.platform !== 'darwin') app.quit()  
+})
+```
+#### 预加载脚本
+ipcRenderer,ipcRenderer.invoke
+```js
+// node 版本  
+console.log("preload",process.version);  
+const {contextBridge,ipcRenderer} = require('electron');  
+contextBridge.exposeInMainWorld('myApi',{  
+    version:process.version,  
+    mysave:(value)=>{  
+        ipcRenderer.send("file-value", value);  
+    },  
+    // 返回的是promise 需要用await,async 才能返回正常的值  
+     myRead(){  
+      let x =  ipcRenderer.invoke("file-read");  
+      console.log("@@@",x)  
+        return x  
+    }  
+})
+```
+#### 渲染进程
+await async 解析promise类型数据
+```js
+const btn1 = document.getElementById("btn1");  
+const user = document.getElementById("user");  
+const btn2 = document.getElementById("btn2");  
+  
+btn1.onclick = function(){  
+  
+    alert(myApi.version);  
+}  
+  
+btn2.onclick = async function(){  
+    myApi.mysave(user.value);  
+    alert(await myApi.myRead())  
+}
+
+```
+## 附示例项目
+
+![](assets/electron/file-20260304133241090.zip)

@@ -1,4 +1,4 @@
-#docker #postgres 
+#docker #postgres #pgsql
 ## 管理工具
 [SQLynx 数据库管理工具](../../软件/SQLynx%20数据库管理工具.md)(免费)
 
@@ -7,6 +7,37 @@
 docker pull postgres:15
 ```
 
+## docker compose 安装
+#pgsql #docker-compose
+pgsql.yml
+```yml
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: pgsql
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - /docker/docker-volume/pgsql16:/var/lib/postgresql/data
+    networks:
+      - dev-bridge
+
+networks:
+  dev-bridge:
+    driver: bridge
+
+
+
+```
+启动
+```
+docker-compose -f pgsql.yml up -d
+```
 
 ## docker run
 
