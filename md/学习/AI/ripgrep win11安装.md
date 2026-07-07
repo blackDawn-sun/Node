@@ -3,7 +3,18 @@
 ```sh
 winget install BurntSushi.ripgrep.MSVC
 ```
+显示下面表示安装成功
+```
+Command line alias added: "rg"
+Path environment variable modified; restart your shell to use the new value.
+```
+验证
+```sh
+rg --version
+rg "你要搜索的关键词"
+```
 ## 问题1：
+#winget
 ```
 Failed when searching source: winget
 An unexpected error occurred while executing the command:
