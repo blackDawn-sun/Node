@@ -7,8 +7,9 @@
   "customTokensStr": "",
   "defaultImageSize": "",
   "defaultImageSizeDimension": "width",
+  "downloadNetworkImages": false,
   "duplicateNameSeparator": " ",
-  "emptyAttachmentFolderBehavior": "DeleteWithEmptyParents",
+  "emptyFolderBehavior": "DeleteWithEmptyParents",
   "excludePaths": [],
   "excludePathsFromAttachmentCollecting": [],
   "generatedAttachmentFileName": "file-${date:{momentJsFormat:'YYYYMMDDHHmmssSSS'}}",
@@ -16,6 +17,7 @@
   "jpegQuality": 0.8,
   "markdownUrlFormat": "assets/${noteFileName}/${generatedAttachmentFileName}",
   "moveAttachmentToProperFolderUsedByMultipleNotesMode": "CopyAll",
+  "networkImageDownloadTimeoutInSeconds": 30,
   "renamedAttachmentFileName": "",
   "shouldDeleteOrphanAttachments": true,
   "shouldHandleRenames": true,
@@ -28,5 +30,5 @@
   "treatAsAttachmentExtensions": [
     ".excalidraw.md"
   ],
-  "version": ""
+  "version": "11.2.3"
 }
