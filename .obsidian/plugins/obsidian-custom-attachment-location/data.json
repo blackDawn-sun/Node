@@ -7,7 +7,7 @@
   "customTokensStr": "",
   "defaultImageSize": "",
   "defaultImageSizeDimension": "width",
-  "downloadNetworkImages": false,
+  "downloadNetworkImages": true,
   "duplicateNameSeparator": " ",
   "emptyFolderBehavior": "DeleteWithEmptyParents",
   "excludePaths": [],
